@@ -1,0 +1,19 @@
+{
+  "name": "itd110-github-group-1",
+  "version": "1.0.0",
+  "description": "ABDULBASIT, DAYAAN, OMAR",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MSU-Students/ITD110-GitHub-Group-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MSU-Students/ITD110-GitHub-Group-1/issues"
+  },
+  "homepage": "https://github.com/MSU-Students/ITD110-GitHub-Group-1#readme"
+}
