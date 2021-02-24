@@ -1,1 +1,4 @@
-console.log("Empty project.");
+var level = require('level');
+
+var db = level("./test-db");
+
