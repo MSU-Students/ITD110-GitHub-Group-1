@@ -52,4 +52,16 @@ async function rateStudentExam(id, student_status){
             console.log('ID Number: ' + id + '\nStatus: ' + student_status[4]);
         }
     })
+    deleteStudent(id);
+}
+
+async function deleteStudent(id){
+    await db.del(id)
+    db.get(id, function(err, value){
+        if(err){
+            console.log('\nStudent profile deleted.');
+        } else{
+            console.log('\nStudent profile still exists.'); 
+        }
+    })
 }
