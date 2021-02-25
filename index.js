@@ -35,5 +35,21 @@ async function scheduleExam(id, scheduleDate){
         console.log('ID Number: ' + id + '\nStatus: ' + student_status[2]);
         console.log('Exam Schedule: ' + examDate);
     })
-    rateEntranceExam(id, status);
+    rateStudentExam(id, student_status);
+}
+
+async function rateStudentExam(id, student_status){
+    console.log('');
+    console.log('Rate of Entrance Exam');
+    var examScore = Math.random() * (180 - 100) + 100;
+    examScore = examScore.toFixed();
+    await db.get(id, function(err, value){
+        if(examScore >= 80){
+            console.log('\nRate: ' + examScore);
+            console.log('ID Number: ' + id + '\nStatus: ' + student_status[3]);
+        } else{
+            console.log('\nRate: ' + examScore);
+            console.log('ID Number: ' + id + '\nStatus: ' + student_status[4]);
+        }
+    })
 }
