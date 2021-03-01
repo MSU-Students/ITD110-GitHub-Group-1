@@ -16,7 +16,8 @@
     "url": "https://github.com/MSU-Students/ITD110-GitHub-Group-1/issues"
   },
   "homepage": "https://github.com/MSU-Students/ITD110-GitHub-Group-1#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "level": "^6.0.1"
   }
 }
