@@ -7,7 +7,9 @@ var studentStatus = ['Applying', 'Under Interview', 'Exam Pending', 'Admitted', 
 (async function() {
     await acceptStudent('201811942', 'Anisah I. Dayaan', 21, 'Marawi City LDS');
     var scheduleDate = 'February 28, 2021';
+    var scheduleDateExam = 'March 08, 2021';
     await scheduleInterview('201811942', scheduleDate);
+    await scheduleExam('201811942', scheduleDateExam);
 }());
 
 function connectToDatabase(db){
@@ -28,4 +30,13 @@ async function scheduleInterview(id, scheduleDate){
     student.InterviewSchedule = scheduleDate;
     await db.put(id, student);
     console.log(student);
+}
+
+async function scheduleExam(id, scheduleDateExam){
+    var student = await db.get(id);
+        console.log('\nSchedule of the Exam');
+        student.Status = studentStatus[2];
+        student.ExamSchedule = scheduleDateExam;
+        await db.put(id, student);
+        console.log(student);
 }
