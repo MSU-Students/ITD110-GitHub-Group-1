@@ -13,6 +13,7 @@ var studentStatus = ['Applying', 'Under Interview', 'Exam Pending', 'Admitted', 
     await scheduleInterview('201811942', scheduleDate);
     await scheduleExam('201811942', scheduleDateExam);
     await rateEntranceExam('201811942', examScore);
+    await deleteStudent('201811942');
 }());
 
 function connectToDatabase(db){
@@ -47,9 +48,23 @@ async function scheduleExam(id, scheduleDateExam){
 async function rateEntranceExam(id, examScore){
     var student = await db.get(id);
     console.log('\nRate of Entrance Exam');
-        student.Status = studentStatus[3];
         student.RateExam = examScore;
+        if (examScore >= 80){
+            student.Status = studentStatus[3];
+        } else {
+            student.Status = studentStatus[4];
+        }
         await db.put(id, student);
         console.log(student);
 }
 
+async function deleteStudent(id){
+    await db.del(id)
+    db.get(id, function(err, value){
+        if(err){
+            console.log('\nStudent profile deleted.');
+        } else{
+            console.log(value); 
+        }
+    })
+}
